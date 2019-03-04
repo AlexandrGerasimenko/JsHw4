@@ -6,22 +6,17 @@
 // Создайте метод объекта, позволяющий положить что-то в сумочку
 
 var womanBag = {
-    mirror : 'green', 
-    phone : 'white',
-    pencil : 'black',
-    removeThing:function  (thing) {
-        for (var  thingInBag in womanBag) {
-            if (  thing == thingInBag){
-                delete womanBag[thingInBag];
-            
-            }
+        mirror: 'green',
+        phone: 'white',
+        pencil: 'black',
+        removeThing: function(thing) {
+          delete womanBag[thing]
+        },
+        addInBag: function(thing, color) {
+          womanBag[thing] = color;
         }
-    },
-    addInBag : function(thing,color){
-    womanBag[thing] = color;
-    }
-};
-
+      };
+      
 womanBag.removeThing('phone');
 console.log(womanBag);
 womanBag.addInBag('pen','blue');
@@ -119,15 +114,13 @@ console.log ( books );
 // значение свойства
 // и добавлять экземпляру новое свойство с указанным именем и значением
 
-var Const = function Const(name, prop) {
-    this.addProperty = function(name, prop) {
+var Constr = function Constr(name, prop) {
+    Constr.prototype.addProperty = function(name, prop) {
       this[name] = `${prop}`;
-      console.log(this.name, 1);
     };
-    console.log(this, 1);
   }
   
-  var a = new Const
+  var a = new Constr
   a.addProperty('color', 'red');
   console.log(a);
   a.addProperty('car', 'bmw');
